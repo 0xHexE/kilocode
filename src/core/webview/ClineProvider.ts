@@ -1824,7 +1824,7 @@ export class ClineProvider
 			organizationAllowList,
 			organizationSettingsVersion,
 			maxConcurrentFileReads,
-			maxFileReadTokenLimit,
+			maxFileReadTokenLimit, // kilocode_change
 			allowVeryLargeReads, // kilocode_change
 			ghostServiceSettings, // kilocode_changes
 			condensingApiConfigId,
@@ -1943,7 +1943,7 @@ export class ClineProvider
 			maxImageFileSize: maxImageFileSize ?? 5,
 			maxTotalImageSize: maxTotalImageSize ?? 20,
 			maxConcurrentFileReads: maxConcurrentFileReads ?? 5,
-			maxFileReadTokenLimit: maxFileReadTokenLimit,
+			maxFileReadTokenLimit: maxFileReadTokenLimit, // kilocode_change
 			allowVeryLargeReads: allowVeryLargeReads ?? false, // kilocode_change
 			settingsImportedAt: this.settingsImportedAt,
 			terminalCompressProgressBar: terminalCompressProgressBar ?? true,
@@ -2145,7 +2145,7 @@ export class ClineProvider
 			maxImageFileSize: stateValues.maxImageFileSize ?? 5,
 			maxTotalImageSize: stateValues.maxTotalImageSize ?? 20,
 			maxConcurrentFileReads: stateValues.maxConcurrentFileReads ?? 5,
-			maxFileReadTokenLimit: stateValues.maxFileReadTokenLimit,
+			maxFileReadTokenLimit: stateValues.maxFileReadTokenLimit, // kilocode_change
 			allowVeryLargeReads: stateValues.allowVeryLargeReads ?? false, // kilocode_change
 			systemNotificationsEnabled: stateValues.systemNotificationsEnabled ?? true, // kilocode_change
 			dismissedNotificationIds: stateValues.dismissedNotificationIds ?? [], // kilocode_change

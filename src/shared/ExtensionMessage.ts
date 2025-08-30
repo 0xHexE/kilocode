@@ -282,6 +282,7 @@ export type ExtensionState = Pick<
 	// | "showRooIgnoredFiles" // Optional in GlobalSettings, required here.
 	// | "maxReadFileLine" // Optional in GlobalSettings, required here.
 	| "maxConcurrentFileReads" // Optional in GlobalSettings, required here.
+	| "maxFileReadTokenLimit" // kilocode_change
 	| "allowVeryLargeReads" // kilocode_change
 	| "terminalOutputLineLimit"
 	| "terminalOutputCharacterLimit"

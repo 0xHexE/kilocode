@@ -67,6 +67,11 @@
 			"allowVeryLargeReads": {
 				"label": "Allow very large file reads",
 				"description": "When enabled, Kilo Code will perform very large file or MCP output reads even if there is a high chance of overflowing the context window (content size >80% of context window)."
+			},
+			"maxFileReadTokenLimit": {
+				"label": "Max file read token limit",
+				"tokens": "tokens",
+				"description": "Maximum number of tokens allowed for reading files. When exceeded, Kilo Code will provide grep/sed commands to extract specific content instead of blocking access. Set to 0 to disable the limit."
 			}
 		},
 		"systemNotifications": {

@@ -73,6 +73,7 @@ export const globalSettingsSchema = z.object({
 	autoCondenseContext: z.boolean().optional(),
 	autoCondenseContextPercent: z.number().optional(),
 	maxConcurrentFileReads: z.number().optional(),
+	maxFileReadTokenLimit: z.number().optional(), // kilocode_change
 	allowVeryLargeReads: z.boolean().optional(), // kilocode_change
 
 	/**

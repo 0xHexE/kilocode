@@ -20,6 +20,7 @@ type ContextManagementSettingsProps = HTMLAttributes<HTMLDivElement> & {
 	maxWorkspaceFiles: number
 	showRooIgnoredFiles?: boolean
 	maxReadFileLine?: number
+	maxFileReadTokenLimit?: number // kilocode_change
 	maxImageFileSize?: number
 	maxTotalImageSize?: number
 	maxConcurrentFileReads?: number
@@ -35,6 +36,7 @@ type ContextManagementSettingsProps = HTMLAttributes<HTMLDivElement> & {
 		| "maxWorkspaceFiles"
 		| "showRooIgnoredFiles"
 		| "maxReadFileLine"
+		| "maxFileReadTokenLimit" // kilocode_change
 		| "maxImageFileSize"
 		| "maxTotalImageSize"
 		| "maxConcurrentFileReads"
@@ -55,6 +57,7 @@ export const ContextManagementSettings = ({
 	showRooIgnoredFiles,
 	setCachedStateField,
 	maxReadFileLine,
+	maxFileReadTokenLimit, // kilocode_change
 	maxImageFileSize,
 	maxTotalImageSize,
 	maxConcurrentFileReads,
@@ -214,6 +217,38 @@ export const ContextManagementSettings = ({
 						{t("settings:contextManagement.maxReadFile.description")}
 					</div>
 				</div>
+
+				{/*kilocode_change start*/}
+				<div>
+					<div className="flex flex-col gap-2">
+						<span className="font-medium">
+							{t("kilocode:settings.contextManagement.maxFileReadTokenLimit.label")}
+						</span>
+						<div className="flex items-center gap-4">
+							<Input
+								type="number"
+								pattern="[0-9]*"
+								className="w-24 bg-vscode-input-background text-vscode-input-foreground border border-vscode-input-border px-2 py-1 rounded text-right [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+								value={maxFileReadTokenLimit ?? 0}
+								min={0}
+								onChange={(e) => {
+									const newValue = parseInt(e.target.value, 10)
+									if (!isNaN(newValue) && newValue >= 0) {
+										setCachedStateField("maxFileReadTokenLimit", newValue)
+									}
+								}}
+								onClick={(e) => e.currentTarget.select()}
+								data-testid="max-file-read-token-limit-input"
+							/>
+							<span>{t("kilocode:settings.contextManagement.maxFileReadTokenLimit.tokens")}</span>
+						</div>
+					</div>
+					<div className="text-vscode-descriptionForeground text-sm mt-2">
+						{t("kilocode:settings.contextManagement.maxFileReadTokenLimit.description")}
+					</div>
+				</div>
+				{/*kilocode_change end*/}
+
 				{/*kilocode_change start*/}
 				<div>
 					<VSCodeCheckbox
